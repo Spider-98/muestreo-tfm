@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muestreo de arañas · Parques urbanos de Madrid</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --marino:#163A5F;
+    --medio:#3E7CB1;
+    --claro:#A9CCE3;
+    --fondo:#F4F7FA;
+    --texto:#2D2D2D;
+    --maxw:680px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Nunito',system-ui,sans-serif;
+    background:var(--fondo);
+    color:var(--texto);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px;}
+
+  /* ---------- Cabecera ---------- */
+  header{
+    background:var(--marino);
+    color:#fff;
+    padding:38px 0 32px;
+    position:relative;
+    overflow:hidden;
+  }
+  header .web{position:absolute;top:0;right:0;width:120px;height:120px;opacity:.35;}
+  header .eyebrow{
+    font-size:13px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--claro);font-weight:600;margin-bottom:10px;
+  }
+  header h1{font-size:27px;font-weight:700;line-height:1.15;max-width:80%;}
+  header p{font-size:15px;color:var(--claro);margin-top:10px;max-width:90%;}
+
+  /* ---------- Vídeo (héroe) ---------- */
+  .video-section{padding:26px 0 6px;}
+  .video-frame{
+    position:relative;width:100%;aspect-ratio:16/9;
+    border-radius:14px;overflow:hidden;
+    background:var(--marino);
+    box-shadow:0 6px 22px rgba(22,58,95,.18);
+  }
+  .video-frame iframe,.video-frame video{
+    position:absolute;inset:0;width:100%;height:100%;border:0;display:block;
+  }
+  .caption{font-size:13px;color:var(--medio);margin-top:10px;text-align:center;}
+
+  /* ---------- Hilo separador (motivo arañil) ---------- */
+  .thread{display:flex;align-items:center;justify-content:center;gap:10px;margin:30px 0 24px;}
+  .thread .line{height:1px;background:var(--claro);flex:1;max-width:120px;}
+  .thread svg{width:22px;height:22px;flex-shrink:0;}
+
+  /* ---------- Métodos ---------- */
+  .method{margin-bottom:6px;}
+  .method h2{
+    font-size:20px;font-weight:700;color:var(--marino);
+    display:flex;align-items:baseline;gap:10px;
+  }
+  .method h2 .num{font-size:14px;color:var(--medio);font-weight:600;}
+  .method .desc{font-size:15px;margin:8px 0 16px;color:var(--texto);}
+  .grid{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:10px;
+  }
+  .grid img,.ph{
+    width:100%;aspect-ratio:4/3;object-fit:cover;
+    border-radius:10px;display:block;background:var(--claro);
+    cursor:pointer;transition:transform .18s ease;
+  }
+  .grid img:hover{transform:scale(1.02);}
+  .ph{
+    display:flex;align-items:center;justify-content:center;text-align:center;
+    color:var(--marino);font-size:12px;font-weight:600;padding:8px;
+    border:1px dashed var(--medio);background:rgba(169,204,227,.35);cursor:default;
+  }
+  .grid img.wide,.ph.wide{grid-column:1 / -1;aspect-ratio:16/9;}
+
+  /* ---------- Pie ---------- */
+  footer{
+    margin-top:36px;padding:24px 0 40px;
+    border-top:1px solid var(--claro);
+    text-align:center;font-size:13px;color:var(--medio);
+  }
+  footer strong{color:var(--marino);font-weight:700;}
+
+  /* ---------- Lightbox ---------- */
+  .lb{
+    position:fixed;inset:0;background:rgba(22,58,95,.92);
+    display:none;align-items:center;justify-content:center;padding:20px;z-index:50;
+  }
+  .lb.open{display:flex;}
+  .lb img{max-width:100%;max-height:90vh;border-radius:8px;}
+  .lb .close{position:absolute;top:18px;right:22px;color:#fff;font-size:34px;cursor:pointer;line-height:1;}
+
+  @media (min-width:560px){
+    header h1{font-size:32px;}
+    .grid{grid-template-columns:repeat(3,1fr);}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    .grid img{transition:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <svg class="web" viewBox="0 0 120 120" aria-hidden="true">
+    <path d="M120 0 L40 80 M120 0 L70 6 M120 0 L100 50 M120 0 L114 30 M120 0 L86 28" stroke="#A9CCE3" stroke-width="1" fill="none"/>
+    <path d="M70 6 Q92 24 114 30" stroke="#A9CCE3" stroke-width=".8" fill="none"/>
+    <path d="M62 16 Q88 36 104 52" stroke="#A9CCE3" stroke-width=".7" fill="none"/>
+    <path d="M54 28 Q80 48 92 66" stroke="#A9CCE3" stroke-width=".7" fill="none"/>
+  </svg>
+  <div class="wrap">
+    <p class="eyebrow">Trabajo de Fin de Máster</p>
+    <h1>Cómo muestreamos las arañas</h1>
+    <!-- EDITA: subtítulo. Ajusta los parques o el grupo si quieres. -->
+    <p>Trabajo de campo en cinco parques urbanos de Madrid · Tres métodos complementarios para inventariar la comunidad de Araneae.</p>
+  </div>
+</header>
+
+<!-- ============================================================
+     VÍDEO  ·  Opción recomendada: súbelo a YouTube como "no listado"
+     o a Vimeo, y pega el enlace de inserción (embed) en el src.
+     Para YouTube el formato es:  https://www.youtube.com/embed/TU_ID
+     ============================================================ -->
+<section class="video-section">
+  <div class="wrap">
+    <div class="video-frame">
+      <iframe
+        src="https://www.youtube.com/embed/TU_ID_DE_VIDEO"
+        title="Vídeo del muestreo"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+
+      <!-- ALTERNATIVA: si subes el .mp4 junto a este archivo, borra el <iframe>
+           de arriba y descomenta esto (pon el nombre real del archivo):
+      <video controls playsinline poster="fotos/portada-video.jpg">
+        <source src="video/muestreo.mp4" type="video/mp4">
+      </video>
+      -->
+    </div>
+    <p class="caption">Pulsa para reproducir · el muestreo en acción</p>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="thread">
+    <span class="line"></span>
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 8 C5 9 3 5 1 6 M12 9 C6 11 4 9 1 11 M12 10 C6 13 4 14 2 16 M12 16 C7 16 5 18 3 21" stroke="#3E7CB1" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+      <path d="M12 8 C19 9 21 5 23 6 M12 9 C18 11 20 9 23 11 M12 10 C18 13 20 14 22 16 M12 16 C17 16 19 18 21 21" stroke="#3E7CB1" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+      <ellipse cx="12" cy="13" rx="3.4" ry="4.6" fill="#3E7CB1"/>
+      <circle cx="12" cy="8.2" r="2" fill="#3E7CB1"/>
+    </svg>
+    <span class="line"></span>
+  </div>
+
+  <!-- ============================================================
+       MÉTODO 1 · MANGUEO
+       Cambia las fotos: sustituye cada <div class="ph"> por
+       <img src="fotos/mangueo-1.jpg" alt="...">
+       ============================================================ -->
+  <section class="method">
+    <h2><span class="num">01</span> Mangueo</h2>
+    <p class="desc">Barrido de la vegetación herbácea y arbustiva con manga entomológica. Captura las arañas que viven sobre las plantas: errantes como <em>Oxyopes</em> o tejedoras pequeñas como <em>Mangora acalypha</em>.</p>
+    <div class="grid">
+      <div class="ph">Foto mangueo 1</div>
+      <div class="ph">Foto mangueo 2</div>
+      <div class="ph">Foto mangueo 3</div>
+    </div>
+  </section>
+
+  <div class="thread"><span class="line"></span>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8 C5 9 3 5 1 6 M12 9 C6 11 4 9 1 11 M12 10 C6 13 4 14 2 16 M12 16 C7 16 5 18 3 21" stroke="#3E7CB1" stroke-width="1.1" fill="none" stroke-linecap="round"/><path d="M12 8 C19 9 21 5 23 6 M12 9 C18 11 20 9 23 11 M12 10 C18 13 20 14 22 16 M12 16 C17 16 19 18 21 21" stroke="#3E7CB1" stroke-width="1.1" fill="none" stroke-linecap="round"/><ellipse cx="12" cy="13" rx="3.4" ry="4.6" fill="#3E7CB1"/><circle cx="12" cy="8.2" r="2" fill="#3E7CB1"/></svg>
+    <span class="line"></span></div>
+
+  <!-- MÉTODO 2 · PITFALL -->
+  <section class="method">
+    <h2><span class="num">02</span> Trampas de caída (pitfall)</h2>
+    <p class="desc">Recipientes enterrados a ras de suelo que capturan arañas corredoras del suelo, activas día y noche: licósidas como <em>Pardosa</em> o gnafósidas como <em>Zelotes</em>.</p>
+    <div class="grid">
+      <div class="ph">Foto pitfall 1</div>
+      <div class="ph">Foto pitfall 2</div>
+      <div class="ph">Foto pitfall 3</div>
+    </div>
+  </section>
+
+  <div class="thread"><span class="line"></span>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8 C5 9 3 5 1 6 M12 9 C6 11 4 9 1 11 M12 10 C6 13 4 14 2 16 M12 16 C7 16 5 18 3 21" stroke="#3E7CB1" stroke-width="1.1" fill="none" stroke-linecap="round"/><path d="M12 8 C19 9 21 5 23 6 M12 9 C18 11 20 9 23 11 M12 10 C18 13 20 14 22 16 M12 16 C17 16 19 18 21 21" stroke="#3E7CB1" stroke-width="1.1" fill="none" stroke-linecap="round"/><ellipse cx="12" cy="13" rx="3.4" ry="4.6" fill="#3E7CB1"/><circle cx="12" cy="8.2" r="2" fill="#3E7CB1"/></svg>
+    <span class="line"></span></div>
+
+  <!-- MÉTODO 3 · VAREO -->
+  <section class="method">
+    <h2><span class="num">03</span> Vareo</h2>
+    <p class="desc">Golpeo de ramas y arbustos sobre una bandeja o paraguas entomológico para hacer caer las arañas del estrato leñoso, como las tomísidas <em>Tmarus</em> y <em>Ozyptila</em>.</p>
+    <div class="grid">
+      <div class="ph">Foto vareo 1</div>
+      <div class="ph">Foto vareo 2</div>
+      <div class="ph">Foto vareo 3</div>
+    </div>
+  </section>
+
+  <div class="thread"><span class="line"></span>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8 C5 9 3 5 1 6 M12 9 C6 11 4 9 1 11 M12 10 C6 13 4 14 2 16 M12 16 C7 16 5 18 3 21" stroke="#3E7CB1" stroke-width="1.1" fill="none" stroke-linecap="round"/><path d="M12 8 C19 9 21 5 23 6 M12 9 C18 11 20 9 23 11 M12 10 C18 13 20 14 22 16 M12 16 C17 16 19 18 21 21" stroke="#3E7CB1" stroke-width="1.1" fill="none" stroke-linecap="round"/><ellipse cx="12" cy="13" rx="3.4" ry="4.6" fill="#3E7CB1"/><circle cx="12" cy="8.2" r="2" fill="#3E7CB1"/></svg>
+    <span class="line"></span></div>
+
+  <!-- ============================================================
+       MÉTODO 4 · IDENTIFICACIÓN (laboratorio)
+       Cambia las fotos igual que los demás: sustituye cada
+       <div class="ph"> por <img src="fotos/identif-1.jpg" alt="...">
+       ============================================================ -->
+  <section class="method">
+    <h2><span class="num">04</span> Identificación</h2>
+    <p class="desc">En el laboratorio, cada individuo se examina bajo lupa binocular y se determina con claves taxonómicas, llegando a especie siempre que el estado de la muestra y los caracteres diagnósticos lo permiten.</p>
+    <div class="grid">
+      <div class="ph">Foto identificación 1</div>
+      <div class="ph">Foto identificación 2</div>
+      <div class="ph">Foto identificación 3</div>
+    </div>
+  </section>
+
+  <footer>
+    <!-- EDITA: tu nombre, tutor/a y universidad -->
+    <p><strong>Tu Nombre Apellido</strong> · Máster en … · Universidad …<br>Defensa TFM · 2026</p>
+  </footer>
+</div>
+
+<div class="lb" id="lb" aria-hidden="true">
+  <span class="close" id="lbClose" role="button" aria-label="Cerrar">&times;</span>
+  <img id="lbImg" src="" alt="">
+</div>
+
+<script>
+  // Lightbox: ampliar fotos al tocarlas (solo afecta a <img>, no a los huecos)
+  const lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg');
+  document.querySelectorAll('.grid img').forEach(img=>{
+    img.addEventListener('click',()=>{lbImg.src=img.src;lbImg.alt=img.alt;lb.classList.add('open');});
+  });
+  function closeLb(){lb.classList.remove('open');lbImg.src='';}
+  document.getElementById('lbClose').addEventListener('click',closeLb);
+  lb.addEventListener('click',e=>{if(e.target===lb)closeLb();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLb();});
+</script>
+</body>
+</html>
