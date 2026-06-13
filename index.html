@@ -43,19 +43,6 @@
   header h1{font-size:27px;font-weight:700;line-height:1.15;max-width:80%;}
   header p{font-size:15px;color:var(--claro);margin-top:10px;max-width:90%;}
 
-  /* ---------- Vídeo (héroe) ---------- */
-  .video-section{padding:26px 0 6px;}
-  .video-frame{
-    position:relative;width:100%;aspect-ratio:16/9;
-    border-radius:14px;overflow:hidden;
-    background:var(--marino);
-    box-shadow:0 6px 22px rgba(22,58,95,.18);
-  }
-  .video-frame iframe,.video-frame video{
-    position:absolute;inset:0;width:100%;height:100%;border:0;display:block;
-  }
-  .caption{font-size:13px;color:var(--medio);margin-top:10px;text-align:center;}
-
   /* ---------- Hilo separador (motivo arañil) ---------- */
   .thread{display:flex;align-items:center;justify-content:center;gap:10px;margin:30px 0 24px;}
   .thread .line{height:1px;background:var(--claro);flex:1;max-width:120px;}
@@ -143,16 +130,14 @@
 
   <!-- ============================================================
        MÉTODO 1 · MANGUEO
-       Cambia las fotos: sustituye cada <div class="ph"> por
-       <img src="fotos/mangueo-1.jpg" alt="...">
        ============================================================ -->
   <section class="method">
     <h2><span class="num">01</span> Mangueo</h2>
     <p class="desc">Barrido de la vegetación herbácea y arbustiva con manga entomológica. Captura las arañas que viven en herbazal: cazadoras como <em>Oxyopes</em> o tejedoras pequeñas como <em>Mangora acalypha</em>.</p>
     <div class="grid">
-      <div class="ph">Foto mangueo 1</div>
-      <div class="ph">Foto mangueo 2</div>
-      <div class="ph">Foto mangueo 3</div>
+      <img src="man1.jpg" alt="">
+      <img src="man2.jpg" alt="">
+      <img src="man3.jpg" alt="">
     </div>
   </section>
 
@@ -160,14 +145,13 @@
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8 C5 9 3 5 1 6 M12 9 C6 11 4 9 1 11 M12 10 C6 13 4 14 2 16 M12 16 C7 16 5 18 3 21" stroke="#3E7CB1" stroke-width="1.1" fill="none" stroke-linecap="round"/><path d="M12 8 C19 9 21 5 23 6 M12 9 C18 11 20 9 23 11 M12 10 C18 13 20 14 22 16 M12 16 C17 16 19 18 21 21" stroke="#3E7CB1" stroke-width="1.1" fill="none" stroke-linecap="round"/><ellipse cx="12" cy="13" rx="3.4" ry="4.6" fill="#3E7CB1"/><circle cx="12" cy="8.2" r="2" fill="#3E7CB1"/></svg>
     <span class="line"></span></div>
 
-  <!-- MÉTODO 2 · PITFALL -->
+  <!-- MÉTODO 2 · PITFALL (dos fotos) -->
   <section class="method">
     <h2><span class="num">02</span> Trampas de caída (pitfall)</h2>
-    <p class="desc">Recipientes enterrados a ras de suelo que capturan arañas del estrato de suelo, activas día y noche: <em>Lycosidae</em> como <em>Pardosa</em> o <em>Gnaphosidae</em> como <em>Zelotes</em>.</p>
+    <p class="desc">Recipientes enterrados a ras de suelo que capturan arañas del estrato de suelo, activas día y noche: <em>Lycosidae</em> como <em>Pardosa</em> o <em>Gnaphosidae</em> como <em>Zelotes</em>. Una vez recogidas se han de limpiar bajo la lupa para eliminar tierra, hojas y separar las arañas presentes en la muestra.</p>
     <div class="grid">
-      <div class="ph">Foto pitfall 1</div>
-      <div class="ph">Foto pitfall 2</div>
-      <div class="ph">Foto pitfall 3</div>
+      <img src="pit1.jpg" alt="">
+      <img src="pit2.jpg" alt="">
     </div>
   </section>
 
@@ -180,9 +164,9 @@
     <h2><span class="num">03</span> Vareo</h2>
     <p class="desc">Golpeo de ramas sobre un paraguas entomológico para hacer caer las arañas de las copas de los árboles, como <em>Tmarus</em> y <em>Ozyptila</em> de la familia <em>Thomisidae</em>.</p>
     <div class="grid">
-      <div class="ph">Foto vareo 1</div>
-      <div class="ph">Foto vareo 2</div>
-      <div class="ph">Foto vareo 3</div>
+      <img src="var1.jpg" alt="">
+      <img src="var2.jpg" alt="">
+      <img src="var3.jpg" alt="">
     </div>
   </section>
 
@@ -191,42 +175,38 @@
     <span class="line"></span></div>
 
   <!-- ============================================================
-       MÉTODO 4 · IDENTIFICACIÓN (laboratorio)
-       Cambia las fotos igual que los demás: sustituye cada
-       <div class="ph"> por <img src="fotos/identif-1.jpg" alt="...">
+       MÉTODO 4 · IDENTIFICACIÓN (laboratorio) — id1, id2, id4
        ============================================================ -->
   <section class="method">
     <h2><span class="num">04</span> Identificación</h2>
     <p class="desc">Cada individuo se examina bajo lupa binocular y se determina con claves taxonómicas, llegando a especie siempre que el estado de la muestra y los caracteres diagnósticos lo permitan.</p>
     <div class="grid">
-      <div class="ph">Foto identificación 1</div>
-      <div class="ph">Foto identificación 2</div>
-      <div class="ph">Foto identificación 3</div>
+      <img src="id1.jpg" alt="">
+      <img src="id2.jpg" alt="">
+      <img src="id4.jpg" alt="">
     </div>
   </section>
 
-<div class="thread"><span class="line"></span>
+  <div class="thread"><span class="line"></span>
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8 C5 9 3 5 1 6 M12 9 C6 11 4 9 1 11 M12 10 C6 13 4 14 2 16 M12 16 C7 16 5 18 3 21" stroke="#3E7CB1" stroke-width="1.1" fill="none" stroke-linecap="round"/><path d="M12 8 C19 9 21 5 23 6 M12 9 C18 11 20 9 23 11 M12 10 C18 13 20 14 22 16 M12 16 C17 16 19 18 21 21" stroke="#3E7CB1" stroke-width="1.1" fill="none" stroke-linecap="round"/><ellipse cx="12" cy="13" rx="3.4" ry="4.6" fill="#3E7CB1"/><circle cx="12" cy="8.2" r="2" fill="#3E7CB1"/></svg>
     <span class="line"></span></div>
 
   <!-- ============================================================
-       05 · COMPLICACIONES DEL MUESTREO
-       Cambia las fotos como en los demás apartados: sustituye cada
-       <div class="ph"> por <img src="fotos/complicacion-1.jpg" alt="...">
+       05 · COMPLICACIONES DEL MUESTREO — com1, com2, com3
        ============================================================ -->
   <section class="method">
     <h2><span class="num">05</span> Complicaciones del muestreo</h2>
-    <p class="desc">El trabajo de campo no siempre sale según lo previsto. Entre las principales dificultades estuvieron las inclemencias climáticas, la sustracción de <em>pitfall</em> y la alteración por el paso de animales o de `personas (las cuales muchas veces contaminan el espacio con desechos).</p>
+    <p class="desc">El trabajo de campo no siempre sale según lo previsto. Entre las principales dificultades estuvieron las inclemencias climáticas, la sustracción de <em>pitfall</em> y la alteración por el paso de animales o de personas (que muchas veces contaminan el espacio con desechos).</p>
     <div class="grid">
-      <div class="ph">Foto complicación 1</div>
-      <div class="ph">Foto complicación 2</div>
-      <div class="ph">Foto complicación 3</div>
+      <img src="com1.jpg" alt="">
+      <img src="com2.jpg" alt="">
+      <img src="com3.jpg" alt="">
     </div>
   </section>
-  
+
   <footer>
     <!-- EDITA: tu nombre, tutor/a y universidad -->
-    <p><strong>Paula Díaz Cano</strong> · Máster en Biodiversidad y Conservación en Áreas Tropicales· UIMP-CSIC<br>Defensa TFM · 2026</p>
+    <p><strong>Paula Díaz Cano</strong> · Máster en Biodiversidad y Conservación en Áreas Tropicales · UIMP-CSIC<br>Defensa TFM · 2026</p>
   </footer>
 </div>
 
